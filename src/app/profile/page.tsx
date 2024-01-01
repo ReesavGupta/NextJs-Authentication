@@ -35,26 +35,30 @@ export default function ProfilePage() {
         fetchData()
     }, [])
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <>
             <Toaster />
-            <h1>profile</h1>
-            <hr />
-            <p>This is the profile page</p>
-            <hr />
-            <h2>
-                {data === 'Nothing' ? (
-                    'Nothing'
-                ) : (
-                    <Link href={`/profile/${data}`}> {data}</Link>
-                )}
-            </h2>
-            <button
-                onClick={onLogout}
-                className="shadow m-4 p-2 rounded bg-slate-50 border-gray-300"
-            >
-                Logout
-            </button>
-            <hr />
-        </div>
+            <h1 className=" underline text-4xl text-center mt-10 text-slate-400">
+                Profile Page
+            </h1>
+            <div className="flex flex-col items-center justify-center w-2/4 py-2 border m-auto my-10  bg-slate-300 text-slate-100 h-96 shadow-xl rounded-3xl">
+                <hr />
+                <p>If you have the token:- there's gonna be "Click Here!" </p>
+                <hr />
+                <h2 className="font-bold text-slate-500 underline hover:text-slate-800 transition">
+                    {data === 'Nothing' ? (
+                        `you don't have the token`
+                    ) : (
+                        <Link href={`/profile/${data}`}> Click Here!</Link>
+                    )}
+                </h2>
+                <button
+                    onClick={onLogout}
+                    className="shadow m-4 p-2 rounded bg-slate-50 border-gray-300 text-slate-600"
+                >
+                    Logout
+                </button>
+                <hr />
+            </div>
+        </>
     )
 }
